@@ -1,0 +1,5 @@
+C:\Users\newworker\Source\Repos\DBGLOGReaderConsole\bin\Debug\ConsoleApplication.exe
+C:\Users\newworker\Source\Repos\DBGLOGReaderConsole\bin\Debug\ConsoleApplication.pdb
+C:\Users\newworker\Source\Repos\DBGLOGReaderConsole\obj\x86\Debug\DBGLOGReaderConsole.csprojResolveAssemblyReference.cache
+C:\Users\newworker\Source\Repos\DBGLOGReaderConsole\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\newworker\Source\Repos\DBGLOGReaderConsole\obj\x86\Debug\ConsoleApplication.pdb
