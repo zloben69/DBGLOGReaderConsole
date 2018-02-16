@@ -10,14 +10,18 @@ namespace DBGLOGReaderConsole
     public static void Main(string[] args)
     {
       var start = DateTime.Now;
-      string file = @"/Users/zloben69/Documents/Programming/Py/log/2017 08 20 0000 (Float).DAT";
-			DBGLOGData data = new DBGLOGData();
+      string input_mac = @"/Users/zloben69/Documents/Programming/Py/log/2017 08 20 0000 (Float).DAT";
+      string input_win = @"C:\Users\newworker\Documents\py\!sandbox\DBGLOGReader\log\2017 08 20 0000 (Float).DAT";
+      string output_win = @"C:\Users\newworker\Documents\py\!sandbox\DBGLOGReader";
+      string output_mac = "/Users/zloben69/Documents/Programming/Py";
+
+      DBGLOGData data = new DBGLOGData();
       Console.WriteLine("Start");
-      data.Read(file);
-      data.PrintToFile("/Users/zloben69/Documents/Programming/Py");
+      data.Read(input_win);
+      data.PrintToFile(output_win);
       data.Print(20);
       Console.WriteLine("Total execution time: " + (DateTime.Now - start).TotalSeconds);
-			//Console.ReadKey();
+      Console.ReadKey();
     }
   }
   class DBGLOGData
@@ -79,7 +83,8 @@ namespace DBGLOGReaderConsole
     public void Read(string file)
     {
       datalogpath = file;
-      List<string> name = this.Get_names(file);
+      string temp;
+      List<string> name = Get_names(file);
       var start = DateTime.Now;
       System.IO.BinaryReader fs = new BinaryReader(File.Open(file, FileMode.Open));
       bool flag = false;
@@ -92,13 +97,19 @@ namespace DBGLOGReaderConsole
         }
         else if (blyat == 0x20 & flag == true)
         {
-          this.Add(System.Text.Encoding.Default.GetString(fs.ReadBytes(19)));
+          temp = System.Text.Encoding.Default.GetString(fs.ReadBytes(4)) + "-";
+          temp += System.Text.Encoding.Default.GetString(fs.ReadBytes(2)) + "-";
+          temp += System.Text.Encoding.Default.GetString(fs.ReadBytes(2)) + " ";
+          temp += System.Text.Encoding.Default.GetString(fs.ReadBytes(8)) + ":";
+          temp += System.Text.Encoding.Default.GetString(fs.ReadBytes(3)) + ":";
+          Add(temp);
+          //this.Add(System.Text.Encoding.Default.GetString(fs.ReadBytes(19)));
           fs.ReadBytes(3);
-          this.Add(name[Convert.ToInt16(System.Text.Encoding.Default.GetString(fs.ReadBytes(2)))]);
+          Add(name[Convert.ToInt16(System.Text.Encoding.Default.GetString(fs.ReadBytes(2)))]);
           //this.Add(System.Text.Encoding.Default.GetString(fs.ReadBytes(2))); //No tagmanes, only tag number
-          this.Add(BitConverter.ToDouble(fs.ReadBytes(8), 0));
+          Add(BitConverter.ToDouble(fs.ReadBytes(8), 0));
           fs.ReadBytes(2);
-          this.Add(BitConverter.ToInt16(fs.ReadBytes(4), 0));
+          Add(BitConverter.ToInt16(fs.ReadBytes(4), 0));
         }
         else if (blyat == 0x1A)
         {
@@ -116,17 +127,22 @@ namespace DBGLOGReaderConsole
       }
       Console.WriteLine();
     }
-    public void PrintToFile(string path = "./")
+    public void PrintToFile(string path)
     {
       var start = DateTime.Now;
       try
       {
-        path += "/" + datalogpath.Remove(datalogpath.LastIndexOf('(')).Substring(datalogpath.LastIndexOf('/') + 1) + ".csv";
+        if (Environment.OSVersion.ToString().Contains("NT"))
+        {
+          path += "\\" + datalogpath.Remove(datalogpath.LastIndexOf('(')).Substring(datalogpath.LastIndexOf('\\') + 1) + ".csv";
+        }
+        else { path += "/" + datalogpath.Remove(datalogpath.LastIndexOf('(')).Substring(datalogpath.LastIndexOf('/') + 1) + ".csv"; }
       }
       catch (Exception)
       {
         path += "/Temp.csv";
       }
+      Console.WriteLine(path);
       try
       {
         if (File.Exists(path))

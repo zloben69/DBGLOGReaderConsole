@@ -1,10 +1,10 @@
-C:/Users/newworker/Source/Repos/DBGLOGReaderConsole/bin/Debug/ConsoleApplication.exe
-C:/Users/newworker/Source/Repos/DBGLOGReaderConsole/bin/Debug/ConsoleApplication.pdb
-C:/Users/newworker/Source/Repos/DBGLOGReaderConsole/obj/x86/Debug/DBGLOGReaderConsole.csprojResolveAssemblyReference.cache
-C:/Users/newworker/Source/Repos/DBGLOGReaderConsole/obj/x86/Debug/ConsoleApplication.exe
-C:/Users/newworker/Source/Repos/DBGLOGReaderConsole/obj/x86/Debug/ConsoleApplication.pdb
 /Users/zloben69/Projects/bin/Debug/ConsoleApplication.exe
 /Users/zloben69/Projects/bin/Debug/ConsoleApplication.pdb
 /Users/zloben69/Projects/obj/x86/Debug/DBGLOGReaderConsole.csproj.CoreCompileInputs.cache
 /Users/zloben69/Projects/obj/x86/Debug/ConsoleApplication.exe
 /Users/zloben69/Projects/obj/x86/Debug/ConsoleApplication.pdb
+C:\Users\newworker\Source\Repos\DBGLOGReaderConsole\bin\Debug\ConsoleApplication.exe
+C:\Users\newworker\Source\Repos\DBGLOGReaderConsole\bin\Debug\ConsoleApplication.pdb
+C:\Users\newworker\Source\Repos\DBGLOGReaderConsole\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\newworker\Source\Repos\DBGLOGReaderConsole\obj\x86\Debug\ConsoleApplication.pdb
+C:\Users\newworker\Source\Repos\DBGLOGReaderConsole\obj\x86\Debug\DBGLOGReaderConsole.csprojResolveAssemblyReference.cache
